@@ -1,0 +1,9 @@
+﻿<div data-options="dxView : { name: 'Herbs', title: 'Rostliny' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div class="search-wrapper" data-bind="dxTextBox: { placeholder: 'Search', mode: 'search', value: herbs.query, valueUpdateEvent: 'keyup' } "></div>
+
+        <div data-bind="dxList: { dataSource: herbs.data }">
+            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: h_title, dxAction: '#herb-details/{h_id}'"></div>
+        </div>
+    </div>
+</div>

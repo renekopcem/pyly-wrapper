@@ -1,9 +1,15 @@
-﻿<div data-options="dxView : { name: 'lists', title: 'About' } " >
+﻿<div data-options="dxView : { name: 'Lists', title: 'Seznam' } " >
     <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
-        <div data-bind="dxScrollView: {}">
-            <p style="padding: 5px">Modify this view to describe your application and provide additional information.</p>
-            <p style="padding: 5px">To learn more about PhoneJS, visit <a href="http://phonejs.devexpress.com">http://phonejs.devexpress.com</a>, where you can find documentation, feature demonstrations, and various tutorials.</p>
-            <p style="padding: 5px">If you have any questions about PhoneJS, do not hesitate to contact our support team via <a href="http://www.devexpress.com/support/center/">http://www.devexpress.com/support/center/</a>. </p>
-	</div>
+        <div data-bind="dxTabs: { dataSource: tabs, selectedIndex: selectedTab }"></div>
+        <!-- ko if: selectedTab() == 0 -->
+        <div data-bind="dxList: { dataSource: pharmacy }">
+            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: name, dxAction: '#pharmacy-details/{id}'"></div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: selectedTab() == 1 -->
+        <div data-bind="dxList: { dataSource: doctors }">
+            <div data-options="dxTemplate : { name: 'item' }" data-bind="text: name, dxAction: '#doctor-details/{id}'"></div>
+        </div>
+        <!-- /ko -->
     </div>
 </div>
