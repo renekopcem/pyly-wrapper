@@ -1,7 +1,3 @@
-/**
- * Created by renekopcem on 28.04.14.
- */
-
 Pyly.Herbs = function (params) {
 
     var dataSource;

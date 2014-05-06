@@ -1,7 +1,3 @@
-/**
- * Created by renekopcem on 28.04.14.
- */
-
 Pyly.Lists = function (params) {
     var viewModel = {
         tabs: [
