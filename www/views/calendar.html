@@ -4,8 +4,8 @@
             <div data-options="dxTemplate: { name: 'group' }">
                 <b><span data-bind="text: key"></span></b> (<span data-bind="text: countItems(items)"></span>)
             </div>
-            <div data-options="dxTemplate: { name: 'item' }">
-                <span data-bind="text: title, dxAction: '#herb-details/{id}'" style="display: block"></span>
+            <div data-options="dxTemplate: { name: 'item' }" style="padding:0">
+                <span data-bind="text: title, dxAction: '#herb-details/{id}'" style="padding:13px 0;display: block"></span>
             </div>
         </div>
     </div>
