@@ -1,12 +1,16 @@
+// View model of Herb Detail component
+
 Pyly['herb-details'] = function(params) {
     var viewModel = {
         id: params.id,
-        name: ko.observable('')
+        name: ko.observable('') // Observing the name after the JSON get back
     }
 
     $.getJSON(herbsUrl).done(function(json) {
-        var item = json[params.id-1];
+        // Find item of ID in json file by h_id
+        var item = findElement(json, 'h_id', params.id);
 
+        // Set title of View
         viewModel.name(item.h_title);
     });
 

@@ -7,6 +7,7 @@ $(function() {
     Pyly.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Pyly,
 
+        // Navigation type to navbar and definition of navigation items
         navigationType: "navbar",
         navigation: [
             {
@@ -17,12 +18,12 @@ $(function() {
             {
                 title: "Seznamy",
                 action: "#Lists",
-                icon: "info"
+                icon: "bookmark"
             },
             {
               title: "Kalendář",
               action: "#Calendar",
-              icon: "info"
+              icon: "event"
             },
             {
                 title: "Rostliny",
@@ -32,6 +33,14 @@ $(function() {
         ]
     });
 
+    // Router for details
     Pyly.app.router.register(":view/:id/", { view: "messages", id: undefined });
     Pyly.app.navigate();
 });
+
+// Function for finding element inside json this is used for static data only
+function findElement(arr, propName, propValue) {
+    for (var i=0; i < arr.length; i++)
+        if (arr[i][propName] == propValue)
+            return arr[i];
+}

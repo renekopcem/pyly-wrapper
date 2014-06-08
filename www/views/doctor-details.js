@@ -1,12 +1,16 @@
+// View model of Doctor Detail component
+
 Pyly['doctor-details'] = function(params) {
     var viewModel = {
         id: params.id,
-        name: ko.observable('')
+        name: ko.observable('') // Observing the name after the JSON get back
     }
 
     $.getJSON(doctorsUrl).done(function(json) {
-        var item = json[params.id-1];
+        // Find item of ID in json file by d_id
+        var item = findElement(json, 'd_id', params.id);
 
+        // Set title of View
         viewModel.name(item.d_firstname + ' ' + item.d_lastname);
     });
 
